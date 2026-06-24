@@ -34,6 +34,9 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: chezmoi
       settings: { id: twpayne.chezmoi, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: WiXCLI
+      settings: { id: WiXToolset.WiXCLI, source: winget }
 
     # --- Editors / IDEs ---
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -89,6 +92,9 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: Flameshot
       settings: { id: Flameshot.Flameshot, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Spotify
+      settings: { id: Spotify.Spotify, source: winget }
 
     # --- Security / networking ---
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -110,6 +116,6 @@ properties:
       settings: { id: Anthropic.Claude, source: winget }
 
     # --- Gaming (add back if needed) ---
-    # - resource: Microsoft.WinGet.DSC/WinGetPackage
-    #   id: Steam
-    #   settings: { id: Valve.Steam, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Steam
+      settings: { id: Valve.Steam, source: winget }

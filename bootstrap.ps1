@@ -25,7 +25,7 @@ Write-Step "Installing apps via winget DSC"
 
 $hostManifests = @{
     '8K-WORKSTATION' = 'packages\winget-desktop.dsc.yaml'
-    # 'MY-LAPTOP'    = 'packages\winget-laptop.dsc.yaml'   # ← set your laptop hostname here
+    '4K-Laptop'    = 'packages\winget-laptop.dsc.yaml'   # ← set your laptop hostname here
 }
 
 $manifestName = $hostManifests[$env:COMPUTERNAME]

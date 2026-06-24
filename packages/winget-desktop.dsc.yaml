@@ -38,6 +38,9 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: chezmoi
       settings: { id: twpayne.chezmoi, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: WiXCLI
+      settings: { id: WiXToolset.WiXCLI, source: winget }
 
     # --- Editors / IDEs ---
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -96,6 +99,9 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: Flameshot
       settings: { id: Flameshot.Flameshot, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Spotify
+      settings: { id: Spotify.Spotify, source: winget }
 
     # --- Security / networking ---
     - resource: Microsoft.WinGet.DSC/WinGetPackage
