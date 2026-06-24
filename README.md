@@ -20,17 +20,35 @@ pwsh -ExecutionPolicy Bypass -File .\export\export-current.ps1
 
 ### After reinstall (on the FRESH install)
 
+Run these in the built-in **Windows PowerShell 5** (no installs yet — winget is pre-installed on Win 11):
+
 ```powershell
-# One-liner: clone this repo, then run bootstrap.
+# 1. Get Git and PowerShell 7
+winget install --id Git.Git --exact --accept-package-agreements --accept-source-agreements
+winget install --id Microsoft.PowerShell --exact --accept-package-agreements --accept-source-agreements
+```
+
+Close and reopen the terminal so `git` is in PATH, then:
+
+```powershell
+# 2. Clone this repo
 git clone https://github.com/julianbrennum/windows-bootstrap.git
 cd windows-bootstrap
+
+# 3. Run bootstrap (elevated — right-click → Run as administrator)
 pwsh -ExecutionPolicy Bypass -File .\bootstrap.ps1
 ```
 
-> Run from an **elevated** PowerShell — some winget packages need admin.
+`bootstrap.ps1` installs all apps, then calls `restore-dotfiles.ps1` which installs chezmoi and applies your dotfiles automatically — no manual chezmoi step needed.
 
 `bootstrap.ps1` is idempotent: re-running it reconciles to the manifests,
 so it's also a fine "drift repair" tool mid-year.
+
+### Curating the app list
+
+Edit `packages/winget.dsc.yaml` to add or remove apps before running bootstrap —
+that file is what gets installed. `winget-packages.json` is just a raw snapshot
+for reference and is not used during install.
 
 ---
 
