@@ -1,0 +1,121 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+# Common apps installed on every machine.
+# Applied by bootstrap.ps1 before the machine-specific manifest.
+
+properties:
+  configurationVersion: 0.2.0
+  resources:
+
+    # --- Dev tools ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Git
+      settings: { id: Git.Git, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: GitHubCLI
+      settings: { id: GitHub.cli, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: PowerShell
+      settings: { id: Microsoft.PowerShell, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Go
+      settings: { id: GoLang.Go, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: NodeJS
+      settings: { id: OpenJS.NodeJS, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Python
+      settings: { id: Python.Python.3.14, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: PythonLauncher
+      settings: { id: Python.Launcher, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Rustup
+      settings: { id: Rustlang.Rustup, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: WiXCLI
+      settings: { id: WiXToolset.WiXCLI, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: chezmoi
+      settings: { id: twpayne.chezmoi, source: winget }
+
+    # --- Editors ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: VSCode
+      settings: { id: Microsoft.VisualStudioCode, source: winget }
+
+    # --- Terminal / shell ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: WindowsTerminal
+      settings: { id: Microsoft.WindowsTerminal, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: PowerToys
+      settings: { id: Microsoft.PowerToys, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: UniGetUI
+      settings: { id: Devolutions.UniGetUI, source: winget }
+
+    # --- Browsers ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Firefox
+      settings: { id: Mozilla.Firefox, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Brave
+      settings: { id: Brave.Brave, source: winget }
+
+    # --- Communication ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Discord
+      settings: { id: Discord.Discord, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Element
+      settings: { id: Element.Element, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Teams
+      settings: { id: Microsoft.Teams, source: winget }
+
+    # --- Productivity ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Anytype
+      settings: { id: AnyAssociation.Anytype, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: OneDrive
+      settings: { id: Microsoft.OneDrive, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: LocalSend
+      settings: { id: LocalSend.LocalSend, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: FileConverter
+      settings: { id: AdrienAllard.FileConverter, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Parabolic
+      settings: { id: Nickvision.Parabolic, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Flameshot
+      settings: { id: Flameshot.Flameshot, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Spotify
+      settings: { id: Spotify.Spotify, source: winget }
+
+    # --- Security / networking ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Keeper
+      settings: { id: KeeperSecurity.KeeperDesktop, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: NetBird
+      settings: { id: Netbird.Netbird, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: WinSCP
+      settings: { id: WinSCP.WinSCP, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Tailscale
+      settings: { id: Tailscale.Tailscale, source: winget }
+
+    # --- Claude / AI ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Claude
+      settings: { id: Anthropic.Claude, source: winget }
+
+    # --- Gaming ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Steam
+      settings: { id: Valve.Steam, source: winget }
