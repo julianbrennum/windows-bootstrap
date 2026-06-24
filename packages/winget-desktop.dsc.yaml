@@ -1,0 +1,159 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+# WinGet Configuration — declarative app installs + optional Windows tweaks.
+# Apply: winget configure --file packages\winget.dsc.yaml --accept-configuration-agreements
+# Rule: each app lives in exactly one manager (winget / scoop / choco). No duplicates.
+
+properties:
+  configurationVersion: 0.2.0
+  resources:
+
+    # --- Dev tools ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Git
+      settings: { id: Git.Git, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: GitHubCLI
+      settings: { id: GitHub.cli, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: PowerShell
+      settings: { id: Microsoft.PowerShell, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Go
+      settings: { id: GoLang.Go, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: NodeJS
+      settings: { id: OpenJS.NodeJS, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Python
+      settings: { id: Python.Python.3.14, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: PythonLauncher
+      settings: { id: Python.Launcher, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Rustup
+      settings: { id: Rustlang.Rustup, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: CMake
+      settings: { id: Kitware.CMake, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: chezmoi
+      settings: { id: twpayne.chezmoi, source: winget }
+
+    # --- Editors / IDEs ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: VSCode
+      settings: { id: Microsoft.VisualStudioCode, source: winget }
+
+    # --- Terminal / shell ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: WindowsTerminal
+      settings: { id: Microsoft.WindowsTerminal, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: PowerToys
+      settings: { id: Microsoft.PowerToys, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: UniGetUI
+      settings: { id: Devolutions.UniGetUI, source: winget }
+
+    # --- Browsers ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Firefox
+      settings: { id: Mozilla.Firefox, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Brave
+      settings: { id: Brave.Brave, source: winget }
+
+    # --- Communication / collaboration ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Discord
+      settings: { id: Discord.Discord, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Element
+      settings: { id: Element.Element, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Teams
+      settings: { id: Microsoft.Teams, source: winget }
+
+    # --- Productivity ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Anytype
+      settings: { id: AnyAssociation.Anytype, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: OneDrive
+      settings: { id: Microsoft.OneDrive, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: LocalSend
+      settings: { id: LocalSend.LocalSend, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: FileConverter
+      settings: { id: AdrienAllard.FileConverter, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Parabolic
+      settings: { id: Nickvision.Parabolic, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: MPCbe
+      settings: { id: MPC-BE.MPC-BE, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Flameshot
+      settings: { id: Flameshot.Flameshot, source: winget }
+
+    # --- Security / networking ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Keeper
+      settings: { id: KeeperSecurity.KeeperDesktop, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: NetBird
+      settings: { id: Netbird.Netbird, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: WinSCP
+      settings: { id: WinSCP.WinSCP, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Tailscale
+      settings: { id: Tailscale.Tailscale, source: winget }
+
+    # --- Claude / AI ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Claude
+      settings: { id: Anthropic.Claude, source: winget }
+
+    # --- Audio / creative ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Rekordbox
+      settings: { id: AlphaTheta.rekordbox, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Affinity
+      settings: { id: Canva.Affinity, source: winget }
+
+    # --- Gaming ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Steam
+      settings: { id: Valve.Steam, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: EpicGames
+      settings: { id: EpicGames.EpicGamesLauncher, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Rockstar
+      settings: { id: RockstarGames.Launcher, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Playnite
+      settings: { id: Playnite.Playnite, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: GameInput
+      settings: { id: Microsoft.GameInput, source: winget }
+
+    # --- Peripherals ---
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: StreamDeck
+      settings: { id: Elgato.StreamDeck, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: SteelSeriesGG
+      settings: { id: SteelSeries.GG, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: SignalRGB
+      settings: { id: WhirlwindFX.SignalRgb, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: LGTVCompanion
+      settings: { id: JPersson77.LGTVCompanion, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: HueSync
+      settings: { id: Philips.HueSync, source: winget }

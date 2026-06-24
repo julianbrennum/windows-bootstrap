@@ -1,7 +1,6 @@
 # yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
-# WinGet Configuration — declarative app installs + optional Windows tweaks.
-# Apply: winget configure --file packages\winget.dsc.yaml --accept-configuration-agreements
-# Rule: each app lives in exactly one manager (winget / scoop / choco). No duplicates.
+# WinGet Configuration — laptop (add hostname mapping in bootstrap.ps1)
+# Apply: winget configure --file packages\winget-laptop.dsc.yaml --accept-configuration-agreements
 
 properties:
   configurationVersion: 0.2.0
@@ -33,9 +32,6 @@ properties:
       id: Rustup
       settings: { id: Rustlang.Rustup, source: winget }
     - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: CMake
-      settings: { id: Kitware.CMake, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: chezmoi
       settings: { id: twpayne.chezmoi, source: winget }
 
@@ -51,6 +47,9 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: PowerToys
       settings: { id: Microsoft.PowerToys, source: winget }
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: UniGetUI
+      settings: { id: Devolutions.UniGetUI, source: winget }
 
     # --- Browsers ---
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -88,9 +87,6 @@ properties:
       id: Parabolic
       settings: { id: Nickvision.Parabolic, source: winget }
     - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: MPCbe
-      settings: { id: MPC-BE.MPC-BE, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: Flameshot
       settings: { id: Flameshot.Flameshot, source: winget }
 
@@ -113,44 +109,7 @@ properties:
       id: Claude
       settings: { id: Anthropic.Claude, source: winget }
 
-    # --- Audio / creative ---
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Rekordbox
-      settings: { id: AlphaTheta.rekordbox, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Affinity
-      settings: { id: Canva.Affinity, source: winget }
-
-    # --- Gaming ---
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Steam
-      settings: { id: Valve.Steam, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: EpicGames
-      settings: { id: EpicGames.EpicGamesLauncher, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Rockstar
-      settings: { id: RockstarGames.Launcher, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Playnite
-      settings: { id: Playnite.Playnite, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: GameInput
-      settings: { id: Microsoft.GameInput, source: winget }
-
-    # --- Peripherals ---
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: StreamDeck
-      settings: { id: Elgato.StreamDeck, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: SteelSeriesGG
-      settings: { id: SteelSeries.GG, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: SignalRGB
-      settings: { id: WhirlwindFX.SignalRgb, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: LGTVCompanion
-      settings: { id: JPersson77.LGTVCompanion, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: HueSync
-      settings: { id: Philips.HueSync, source: winget }
+    # --- Gaming (add back if needed) ---
+    # - resource: Microsoft.WinGet.DSC/WinGetPackage
+    #   id: Steam
+    #   settings: { id: Valve.Steam, source: winget }

@@ -19,10 +19,24 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 $root = $PSScriptRoot
 
 # =========================================================================
-# 1. winget — declarative DSC config
+# 1. winget — declarative DSC config (auto-selected by hostname)
 # =========================================================================
 Write-Step "Installing apps via winget DSC"
-winget configure --file (Join-Path $root "packages\winget.dsc.yaml") --accept-configuration-agreements --disable-interactivity
+
+$hostManifests = @{
+    '8K-WORKSTATION' = 'packages\winget-desktop.dsc.yaml'
+    # 'MY-LAPTOP'    = 'packages\winget-laptop.dsc.yaml'   # ← set your laptop hostname here
+}
+
+$manifestName = $hostManifests[$env:COMPUTERNAME]
+if (-not $manifestName) {
+    Write-Error "No winget manifest mapped for hostname '$($env:COMPUTERNAME)'. Add it to the `$hostManifests table in bootstrap.ps1."
+    exit 1
+}
+
+$dscFile = Join-Path $root $manifestName
+Write-Host "  Using $manifestName (hostname: $($env:COMPUTERNAME))"
+winget configure --file $dscFile --accept-configuration-agreements --disable-interactivity
 Write-Done "winget DSC applied"
 
 # =========================================================================
