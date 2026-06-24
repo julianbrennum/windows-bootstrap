@@ -43,7 +43,15 @@ winget configure --file (Join-Path $root $machineManifest) --accept-configuratio
 Write-Done "winget DSC applied"
 
 # =========================================================================
-# 2. Dotfiles (chezmoi) + VS Code extensions
+# 2. Windows OpenSSH Authentication Agent (required by Keeper SSH Agent)
+# =========================================================================
+Write-Step "Configuring ssh-agent service"
+Set-Service -Name ssh-agent -StartupType Automatic
+Start-Service -Name ssh-agent
+Write-Done "ssh-agent running (Keeper SSH Agent dependency)"
+
+# =========================================================================
+# 3. Dotfiles (chezmoi) + VS Code extensions
 # =========================================================================
 Write-Step "Restoring dotfiles"
 & (Join-Path $root "restore\restore-dotfiles.ps1")
