@@ -181,17 +181,3 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: HueSync
       settings: { id: Philips.HueSync, source: winget }
-
-    # --- Runtimes (explicit so winget install picks them up) ---
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: VCRedist2015x64
-      settings: { id: Microsoft.VCRedist.2015+.x64, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: VCRedist2015x86
-      settings: { id: Microsoft.VCRedist.2015+.x86, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: DotNet10Desktop
-      settings: { id: Microsoft.DotNet.DesktopRuntime.10, source: winget }
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: NvidiaPhysX
-      settings: { id: Nvidia.PhysX, source: winget }
